@@ -2,9 +2,11 @@ package br.sci.clinicamedica.service;
 
 import br.sci.clinicamedica.model.medico.Medico;
 import br.sci.clinicamedica.model.medico.MedicoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MedicoService {
 
     private MedicoRepository repository;
