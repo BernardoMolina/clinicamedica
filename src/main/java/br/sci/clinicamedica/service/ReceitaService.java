@@ -10,7 +10,7 @@ import java.util.List;
 public class ReceitaService {
 
     private ReceitaRepository repository;
-    public void ReceitaService(ReceitaRepository repository){
+    public ReceitaService(ReceitaRepository repository){
         this.repository = repository;
     }
 
@@ -28,8 +28,8 @@ public class ReceitaService {
 
     public void atualizar(Receita receita){
         Receita p = this.repository.getReferenceById(receita.getId());
-        p.setData_prescricao(receita.getData_prescricao());
-        p.setData_validade(receita.getData_validade());
+        p.setDataprescricao(receita.getDataprescricao());
+        p.setDatavalidade(receita.getDatavalidade());
         p.setConsulta(receita.getConsulta());
     }
 

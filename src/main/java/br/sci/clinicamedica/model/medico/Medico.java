@@ -51,11 +51,11 @@ public class Medico {
 
     @NotBlank
     @Size(max = 6,min = 6,message = "Registro inválido")
-    private String registro;
+    private String registro_medico;
 
     @Embedded
     private Endereco endereco;
 
-    @OneToMany(mappedBy = "medico")
+    @OneToMany(mappedBy = "idmedico")
     private List<Consulta> consultas;
 }

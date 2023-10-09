@@ -10,7 +10,7 @@ import java.util.List;
 public class MedicoService {
 
     private MedicoRepository repository;
-    public void MedicoService(MedicoRepository repository){
+    public MedicoService(MedicoRepository repository){
         this.repository = repository;
     }
 
@@ -33,7 +33,7 @@ public class MedicoService {
         p.setEmail(medico.getEmail());
         p.setCpf(medico.getCpf());
         p.setTelefone(medico.getTelefone());
-        p.setRegistro(medico.getRegistro());
+        p.setRegistro_medico(medico.getRegistro_medico());
         p.setEspecializacao(medico.getEspecializacao());
         p.setEndereco(medico.getEndereco());
     }

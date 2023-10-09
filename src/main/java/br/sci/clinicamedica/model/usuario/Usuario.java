@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @Table(name = "usuarios")
@@ -21,6 +22,7 @@ public class Usuario {
     private int id;
     @NotNull
     @Email
+    @UniqueElements
     private String login;
     @NotNull
     private String senha;

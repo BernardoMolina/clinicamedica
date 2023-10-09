@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -26,10 +27,10 @@ public class Receita{
     private int id;
 
     @NotBlank
-    private LocalDate data_prescricao;
+    private String dataprescricao;
 
     @NotBlank
-    private LocalDate data_validade;
+    private String datavalidade;
 
     @OneToOne
     @JoinColumn(name = "idconsulta")

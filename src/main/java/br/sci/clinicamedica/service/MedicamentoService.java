@@ -10,7 +10,7 @@ import java.util.List;
 public class MedicamentoService {
 
     private MedicamentoRepository repository;
-    public void MedicamentoService(MedicamentoRepository repository){
+    public MedicamentoService(MedicamentoRepository repository){
         this.repository = repository;
     }
 

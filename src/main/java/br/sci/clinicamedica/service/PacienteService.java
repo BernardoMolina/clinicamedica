@@ -11,7 +11,7 @@ import java.util.List;
 public class PacienteService {
 
     private PacienteRepository repository;
-    public void PacieneService(PacienteRepository repository){
+    public PacienteService(PacienteRepository repository){
         this.repository = repository;
     }
 

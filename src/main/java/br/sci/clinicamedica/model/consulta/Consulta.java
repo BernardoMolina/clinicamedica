@@ -9,9 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -29,19 +31,21 @@ public class Consulta {
 
     @ManyToOne
     @JoinColumn(name = "idmedico")
-    private Medico medico;
+    private Medico idmedico;
 
     @ManyToOne
     @JoinColumn(name = "idpaciente")
-    private Paciente paciente;
+    private Paciente idpaciente;
 
 
 
     @NotBlank
-    private LocalDate data;
+    @DateTimeFormat
+    private String dataconsulta;
 
     @NotBlank
-    private LocalTime hora;
+    @DateTimeFormat
+    private String horaconsulta;
 
     @NotBlank
     private String status;

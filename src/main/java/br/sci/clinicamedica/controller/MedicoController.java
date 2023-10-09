@@ -1,5 +1,6 @@
 package br.sci.clinicamedica.controller;
 
+import br.sci.clinicamedica.model.consulta.Consulta;
 import br.sci.clinicamedica.model.medico.Medico;
 import br.sci.clinicamedica.service.MedicoService;
 import jakarta.transaction.Transactional;
@@ -39,6 +40,8 @@ public class MedicoController {
         URI uri = uriComponentsBuilder.path("/medico/{id}").buildAndExpand(medico.getId()).toUri();
         return ResponseEntity.created(uri).body(medico);
     }
+
+
 
     @GetMapping
     public ResponseEntity<List<Medico>> listar(){

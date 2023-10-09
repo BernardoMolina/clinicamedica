@@ -11,7 +11,7 @@ public class ConsultaService {
 
 
     private ConsultaRepository repository;
-    public void ConsultaService(ConsultaRepository repository){
+    public ConsultaService(ConsultaRepository repository){
         this.repository = repository;
     }
 
@@ -29,10 +29,10 @@ public class ConsultaService {
 
     public void atualizar(Consulta consulta){
         Consulta p = this.repository.getReferenceById(consulta.getId());
-        p.setMedico(consulta.getMedico());
-        p.setPaciente(consulta.getPaciente());
-        p.setData(consulta.getData());
-        p.setHora(consulta.getHora());
+        p.setIdmedico(consulta.getIdmedico());
+        p.setIdpaciente(consulta.getIdpaciente());
+        p.setDataconsulta(consulta.getDataconsulta());
+        p.setHoraconsulta(consulta.getHoraconsulta());
         p.setStatus(consulta.getStatus());
     }
 

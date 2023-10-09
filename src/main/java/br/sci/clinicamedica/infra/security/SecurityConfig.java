@@ -30,10 +30,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers(HttpMethod.POST,"/login").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/usuario").permitAll()//tirar depois
+                                .requestMatchers(HttpMethod.POST,"/medico").hasAuthority("ROLE_ADMIN")
+                                .requestMatchers(HttpMethod.POST,"/paciente").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/consulta").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/medicamento").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/receita").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/usuario").hasAuthority("ROLE_ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/medico").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN","ROLE_PACIENTE")
                                 .requestMatchers(HttpMethod.GET,"/paciente").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
-                                .requestMatchers(HttpMethod.POST,"/consulta").hasAnyAuthority("ROLE_PACIENTE")
                                 .anyRequest().authenticated())
                 .addFilterBefore(this.autenticacaoFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
