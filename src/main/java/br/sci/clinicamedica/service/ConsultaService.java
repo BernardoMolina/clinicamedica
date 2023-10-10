@@ -29,6 +29,8 @@ public class ConsultaService {
         return  this.repository.findAllDTO();
     }
 
+
+
     public Consulta findById(int id){
         return  this.repository.findById(id).get();
     }

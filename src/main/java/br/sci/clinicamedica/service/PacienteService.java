@@ -1,6 +1,8 @@
 package br.sci.clinicamedica.service;
 
 
+import br.sci.clinicamedica.model.consulta.ConsultaDTO;
+import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
 import br.sci.clinicamedica.model.paciente.Paciente;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.model.paciente.PacienteRepository;
@@ -25,6 +27,13 @@ public class PacienteService {
     }
     public List<PacienteDTO> listaPacientesDTO(){
         return  this.repository.findAllDTO();
+    }
+
+    public List<ConsultaDTO> findByConsultasPorPaciente(int id){
+        return  this.repository.findByConsultasPorPaciente(id);
+    }
+    public List<TodasConsultasDTO> findByTodasConsultasPorPaciente(int id){
+        return  this.repository.findByTodasConsultasPorPaciente(id);
     }
 
     public Paciente findById(int id){

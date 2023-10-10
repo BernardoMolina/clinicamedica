@@ -22,6 +22,7 @@ public class SecurityConfig {
         this.autenticacaoFilter = filtro;
     }
 
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http
@@ -29,7 +30,7 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers(HttpMethod.POST,"/login").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/usuario").hasAuthority("ROLE_ADMIN")
+                                .requestMatchers(HttpMethod.POST,"/usuario").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/medico").hasAuthority("ROLE_ADMIN")
                                 .requestMatchers(HttpMethod.POST,"/paciente").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/consulta").permitAll()
@@ -40,17 +41,28 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.GET,"/medico").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/paciente").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/consulta").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
+                                .requestMatchers(HttpMethod.GET,"/paciente/detalhes_consulta/{id}").permitAll()
+                                .requestMatchers(HttpMethod.GET,"/paciente/todas_consultas/{id}").permitAll()
                                 .requestMatchers(HttpMethod.PUT,"/medico").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/paciente").hasAnyAuthority("ROLE_PACIENTE","ROLE_ADMIN")
                                 .anyRequest().authenticated())
                 .addFilterBefore(this.autenticacaoFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
+
+
+
+
+
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
             throws Exception{
         return configuration.getAuthenticationManager();
     }
+
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

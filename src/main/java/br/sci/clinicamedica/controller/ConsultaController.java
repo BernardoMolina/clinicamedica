@@ -51,6 +51,8 @@ public class ConsultaController {
     public List<ConsultaDTO> listarConsultaDTO(){
         return this.service.listaConsultasDTO();
     }
+
+
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody Consulta consulta){

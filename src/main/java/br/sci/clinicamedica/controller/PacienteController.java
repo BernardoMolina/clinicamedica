@@ -1,5 +1,7 @@
 package br.sci.clinicamedica.controller;
 
+import br.sci.clinicamedica.model.consulta.ConsultaDTO;
+import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
 import br.sci.clinicamedica.model.paciente.Paciente;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.service.PacienteService;
@@ -50,6 +52,15 @@ public class PacienteController {
     @GetMapping
     public List<PacienteDTO> listarPacienteDTO(){
         return this.service.listaPacientesDTO();
+    }
+
+    @GetMapping("/detalhes_consulta/{id}")
+    public List<ConsultaDTO> listarConsultasPorPaciente(@PathVariable int id){
+        return this.service.findByConsultasPorPaciente(id);
+    }
+    @GetMapping("/todas_consultas/{id}")
+    public List<TodasConsultasDTO> listarTodasConsultasPorPaciente(@PathVariable int id){
+        return this.service.findByTodasConsultasPorPaciente(id);
     }
     @PutMapping
     @Transactional
