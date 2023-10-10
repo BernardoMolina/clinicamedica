@@ -47,7 +47,7 @@ public class PacienteController {
         return ResponseEntity.ok(this.service.listar());
     }
 
-   @GetMapping
+    @GetMapping
     public List<PacienteDTO> listarPacienteDTO(){
         return this.service.listaPacientesDTO();
     }

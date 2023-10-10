@@ -2,7 +2,7 @@ package br.sci.clinicamedica.model.medico;
 
 public interface MedicoDTO {
 
-    int getId();
+   // int getId();
 
     String getNome();
 
@@ -10,11 +10,13 @@ public interface MedicoDTO {
 
     String getEmail();
 
-    String getCpf();
+    //String getCpf();
 
     String getTelefone();
 
     String getEspecializacao();
+
+    String getRegistro_medico();
 
 
 

@@ -40,6 +40,8 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.GET,"/medico").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/paciente").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/consulta").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
+                                .requestMatchers(HttpMethod.PUT,"/medico").hasAnyAuthority("ROLE_MEDICO","ROLE_ADMIN")
+                                .requestMatchers(HttpMethod.PUT,"/paciente").hasAnyAuthority("ROLE_PACIENTE","ROLE_ADMIN")
                                 .anyRequest().authenticated())
                 .addFilterBefore(this.autenticacaoFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

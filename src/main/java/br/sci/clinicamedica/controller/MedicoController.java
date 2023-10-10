@@ -2,6 +2,8 @@ package br.sci.clinicamedica.controller;
 
 import br.sci.clinicamedica.model.consulta.Consulta;
 import br.sci.clinicamedica.model.medico.Medico;
+import br.sci.clinicamedica.model.medico.MedicoDTO;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.service.MedicoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -32,6 +34,8 @@ public class MedicoController {
         return  this.service.findById(id);
     }
 
+
+
     @PostMapping
     @Transactional
     public ResponseEntity salvar(@RequestBody @Valid Medico medico, UriComponentsBuilder uriComponentsBuilder){
@@ -43,9 +47,14 @@ public class MedicoController {
 
 
 
-    @GetMapping
+    //@GetMapping
     public ResponseEntity<List<Medico>> listar(){
         return ResponseEntity.ok(this.service.listar());
+    }
+
+    @GetMapping
+    public List<MedicoDTO> listarMedicoDTO(){
+        return this.service.listaMedicosDTO();
     }
 
     @PutMapping

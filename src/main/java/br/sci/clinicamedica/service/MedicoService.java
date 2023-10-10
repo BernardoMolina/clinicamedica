@@ -1,7 +1,9 @@
 package br.sci.clinicamedica.service;
 
 import br.sci.clinicamedica.model.medico.Medico;
+import br.sci.clinicamedica.model.medico.MedicoDTO;
 import br.sci.clinicamedica.model.medico.MedicoRepository;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +24,10 @@ public class MedicoService {
         return  this.repository.findAll();
     }
 
+    public List<MedicoDTO> listaMedicosDTO(){
+        return  this.repository.findAllDTO();
+    }
+
     public Medico findById(int id){
         return  this.repository.findById(id).get();
     }
@@ -31,7 +37,7 @@ public class MedicoService {
         p.setNome(medico.getNome());
         p.setSobrenome(medico.getSobrenome());
         p.setEmail(medico.getEmail());
-        p.setCpf(medico.getCpf());
+       // p.setCpf(medico.getCpf());
         p.setTelefone(medico.getTelefone());
         p.setRegistro_medico(medico.getRegistro_medico());
         p.setEspecializacao(medico.getEspecializacao());

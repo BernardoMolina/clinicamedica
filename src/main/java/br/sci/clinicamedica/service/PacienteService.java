@@ -36,7 +36,7 @@ public class PacienteService {
         p.setNome(paciente.getNome());
         p.setSobrenome(paciente.getSobrenome());
         p.setEmail(paciente.getEmail());
-        p.setCpf(paciente.getCpf());
+       // p.setCpf(paciente.getCpf());
         p.setTelefone(paciente.getTelefone());
         p.setPlano_de_saude(paciente.getPlano_de_saude());
         p.setEndereco(paciente.getEndereco());
