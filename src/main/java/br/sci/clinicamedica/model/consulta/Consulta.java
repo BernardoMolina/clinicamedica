@@ -50,6 +50,6 @@ public class Consulta {
     @NotBlank
     private String status;
 
-    @OneToOne(mappedBy = "consulta")
+    @OneToOne(mappedBy = "idconsulta")
     private Receita receita;
 }

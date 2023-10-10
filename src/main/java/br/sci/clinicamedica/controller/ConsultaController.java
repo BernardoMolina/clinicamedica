@@ -1,6 +1,8 @@
 package br.sci.clinicamedica.controller;
 
 import br.sci.clinicamedica.model.consulta.Consulta;
+import br.sci.clinicamedica.model.consulta.ConsultaDTO;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.service.ConsultaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -40,11 +42,15 @@ public class ConsultaController {
         return ResponseEntity.created(uri).body(consulta);
     }
 
-    @GetMapping
+    //@GetMapping
     public ResponseEntity<List<Consulta>> listar(){
         return ResponseEntity.ok(this.service.listar());
     }
 
+    @GetMapping
+    public List<ConsultaDTO> listarConsultaDTO(){
+        return this.service.listaConsultasDTO();
+    }
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody Consulta consulta){

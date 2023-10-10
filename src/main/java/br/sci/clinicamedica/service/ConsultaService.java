@@ -1,7 +1,9 @@
 package br.sci.clinicamedica.service;
 
 import br.sci.clinicamedica.model.consulta.Consulta;
+import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.ConsultaRepository;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,10 @@ public class ConsultaService {
 
     public List<Consulta> listar(){
         return  this.repository.findAll();
+    }
+
+    public List<ConsultaDTO> listaConsultasDTO(){
+        return  this.repository.findAllDTO();
     }
 
     public Consulta findById(int id){

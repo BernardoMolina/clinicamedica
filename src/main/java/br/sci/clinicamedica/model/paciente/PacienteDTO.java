@@ -2,15 +2,13 @@ package br.sci.clinicamedica.model.paciente;
 
 public interface PacienteDTO {
 
-    int getId();
+   // int getId();
 
     String getNome();
 
     String getSobrenome();
 
     String getEmail();
-
-    String getCpf();
 
     String getTelefone();
 

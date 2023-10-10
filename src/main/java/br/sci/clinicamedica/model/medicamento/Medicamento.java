@@ -23,7 +23,7 @@ public class Medicamento {
 
     @ManyToOne
     @JoinColumn(name = "idreceita")
-    private Receita receita;
+    private Receita idreceita;
 
     private String medicamento;
 

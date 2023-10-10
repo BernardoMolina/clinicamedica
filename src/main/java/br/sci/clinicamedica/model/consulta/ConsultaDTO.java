@@ -2,21 +2,31 @@ package br.sci.clinicamedica.model.consulta;
 
 import br.sci.clinicamedica.model.medico.Medico;
 import br.sci.clinicamedica.model.paciente.Paciente;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public interface ConsultaDTO {
 
-    int getID();
 
-    String getSatus();
 
-    Medico getMedico();
+    String getStatus();
 
-    Paciente getPaciente();
+    String getNomepaciente();
 
-    LocalDate getData();
+    String getNomemedico();
 
-    LocalTime getHora();
+    String getDatavalidade();
+
+    String getMedicamento();
+
+    String getInstrucoes();
+
+    String getDosagem();
+
+
+    String getDataconsulta();
+
+    String getHoraconsulta();
 }

@@ -2,6 +2,7 @@ package br.sci.clinicamedica.service;
 
 
 import br.sci.clinicamedica.model.paciente.Paciente;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.model.paciente.PacienteRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class PacienteService {
 
     public List<Paciente> listar(){
         return  this.repository.findAll();
+    }
+    public List<PacienteDTO> listaPacientesDTO(){
+        return  this.repository.findAllDTO();
     }
 
     public Paciente findById(int id){
