@@ -33,10 +33,10 @@ public class Receita{
     private String datavalidade;
 
     @OneToOne
-    @JoinColumn(name = "idconsulta")
-    private Consulta idconsulta;
+    @JoinColumn(name = "consultas")
+    private Consulta consultas;
 
-    @OneToMany(mappedBy = "idreceita")
+    @OneToMany(mappedBy = "receitas")
     private List<Medicamento> medicamentos;
 
 }

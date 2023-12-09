@@ -1,6 +1,10 @@
 package br.sci.clinicamedica.controller;
 
+import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
+import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.model.receita.Receita;
+import br.sci.clinicamedica.model.receita.ReceitaDTO;
+import br.sci.clinicamedica.model.receita.SalvarReceitaDTO;
 import br.sci.clinicamedica.service.ReceitaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -37,13 +41,16 @@ public class ReceitaController {
 
         this.service.salvar(receita);
         URI uri = uriComponentsBuilder.path("/receita/{id}").buildAndExpand(receita.getId()).toUri();
-        return ResponseEntity.created(uri).body(receita);
+        SalvarReceitaDTO receitadto = this.service.salvarReceitaDTO(receita.getId());
+        return ResponseEntity.created(uri).body(receitadto);
     }
 
     @GetMapping
-    public ResponseEntity<List<Receita>> listar(){
-        return ResponseEntity.ok(this.service.listar());
+    public List<ReceitaDTO> listarReceitaDTO(){
+        return this.service.listaReceitasDTO();
     }
+
+
 
     @PutMapping
     @Transactional

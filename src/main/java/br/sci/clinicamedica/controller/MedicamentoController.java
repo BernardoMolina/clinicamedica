@@ -1,6 +1,8 @@
 package br.sci.clinicamedica.controller;
 
 import br.sci.clinicamedica.model.medicamento.Medicamento;
+import br.sci.clinicamedica.model.medicamento.SalvarMedicamentoDTO;
+import br.sci.clinicamedica.model.receita.SalvarReceitaDTO;
 import br.sci.clinicamedica.service.MedicamentoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -37,7 +39,8 @@ public class MedicamentoController {
 
         this.service.salvar(medicamento);
         URI uri = uriComponentsBuilder.path("/medicamento/{id}").buildAndExpand(medicamento.getId()).toUri();
-        return ResponseEntity.created(uri).body(medicamento);
+        SalvarMedicamentoDTO medicamentodto = this.service.salvarMedicamentoDTO(medicamento.getId());
+        return ResponseEntity.created(uri).body(medicamentodto);
     }
 
     @GetMapping

@@ -50,6 +50,6 @@ public class Paciente {
     @Embedded
     private Endereco endereco;
 
-    @OneToMany(mappedBy = "idpaciente")
+    @OneToMany(mappedBy = "pacientes")
     private List<Consulta> consultas;
 }

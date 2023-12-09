@@ -1,8 +1,12 @@
 package br.sci.clinicamedica.controller;
 
 import br.sci.clinicamedica.model.consulta.Consulta;
+import br.sci.clinicamedica.model.consulta.ConsultaDTO;
+import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
+import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
 import br.sci.clinicamedica.model.medico.Medico;
 import br.sci.clinicamedica.model.medico.MedicoDTO;
+import br.sci.clinicamedica.model.medico.SalvarMedicoDTO;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.service.MedicoService;
 import jakarta.transaction.Transactional;
@@ -42,7 +46,8 @@ public class MedicoController {
 
         this.service.salvar(medico);
         URI uri = uriComponentsBuilder.path("/medico/{id}").buildAndExpand(medico.getId()).toUri();
-        return ResponseEntity.created(uri).body(medico);
+        SalvarMedicoDTO medicodto = this.service.salvarMedicoDTO(medico.getId());
+        return ResponseEntity.created(uri).body(medicodto);
     }
 
 
@@ -55,6 +60,15 @@ public class MedicoController {
     @GetMapping
     public List<MedicoDTO> listarMedicoDTO(){
         return this.service.listaMedicosDTO();
+    }
+
+    @GetMapping("/detalhes_consulta_medico/{id}")
+    public List<ConsultaDTO> listarConsultasPorMedico(@PathVariable int id){
+        return this.service.findByConsultasPorMedico(id);
+    }
+    @GetMapping("/todas_consultas_medico/{id}")
+    public List<TodasConsultasDTO> listarTodasConsultasPorMedico(@PathVariable int id){
+        return this.service.findByTodasConsultasPorMedico(id);
     }
 
     @PutMapping

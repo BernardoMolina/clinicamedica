@@ -30,12 +30,12 @@ public class Consulta {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idmedico")
-    private Medico idmedico;
+    @JoinColumn(name = "medicos")
+    private Medico medicos;
 
     @ManyToOne
-    @JoinColumn(name = "idpaciente")
-    private Paciente idpaciente;
+    @JoinColumn(name = "pacientes")
+    private Paciente pacientes;
 
 
 
@@ -50,6 +50,6 @@ public class Consulta {
     @NotBlank
     private String status;
 
-    @OneToOne(mappedBy = "idconsulta")
+    @OneToOne(mappedBy = "consultas")
     private Receita receita;
 }

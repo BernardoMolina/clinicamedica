@@ -1,9 +1,13 @@
 package br.sci.clinicamedica.model.medico;
 
+import br.sci.clinicamedica.model.consulta.ConsultaDTO;
+import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
+import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
 import br.sci.clinicamedica.model.paciente.Paciente;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +21,22 @@ public interface MedicoRepository extends JpaRepository<Medico, Integer> {
     public Optional<Medico> findById(int id);
     @Query(value = "SELECT nome,sobrenome,email,telefone,especializacao,registro_medico FROM medicos", nativeQuery = true)
     List<MedicoDTO> findAllDTO();
+
+    @Query(value = "SELECT * \n" +
+            "FROM medicos where medicos.id =:id", nativeQuery = true)
+    SalvarMedicoDTO salvarMedico(@Param("id") int id);
+
+
+
+    @Query(value = "SELECT status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,datavalidade,medicamento,dosagem,instrucoes,dataconsulta,horaconsulta \n" +
+            "FROM pacientes,consultas,medicos,receitas,medicamentos where pacientes.id=consultas.idpaciente and\n" +
+            "medicos.id=consultas.idmedico and consultas.id=receitas.idconsulta and\n" +
+            "receitas.id=medicamentos.idreceita and consultas.idmedico =:id", nativeQuery = true)
+    List<ConsultaDTO> findByConsultasPorMedico(@Param("id") int id);
+    @Query(value = "SELECT status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,dataconsulta,horaconsulta \n" +
+            "FROM pacientes,consultas,medicos where pacientes.id=consultas.idpaciente and\n" +
+            "medicos.id=consultas.idmedico\n" +
+            " and consultas.idmedico =:id", nativeQuery = true)
+    List<TodasConsultasDTO> findByTodasConsultasPorMedico(@Param("id") int id);
 
 }

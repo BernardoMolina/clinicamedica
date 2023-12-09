@@ -3,6 +3,7 @@ package br.sci.clinicamedica.service;
 import br.sci.clinicamedica.model.consulta.Consulta;
 import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.ConsultaRepository;
+import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class ConsultaService {
         return  this.repository.findAllDTO();
     }
 
-
+    public SalvarConsultaDTO salvarConsultaDTO(int id){return this.repository.salvarConsulta(id);}
 
     public Consulta findById(int id){
         return  this.repository.findById(id).get();
@@ -37,8 +38,8 @@ public class ConsultaService {
 
     public void atualizar(Consulta consulta){
         Consulta p = this.repository.getReferenceById(consulta.getId());
-        p.setIdmedico(consulta.getIdmedico());
-        p.setIdpaciente(consulta.getIdpaciente());
+        p.setMedicos(consulta.getMedicos());
+        p.setPacientes(consulta.getPacientes());
         p.setDataconsulta(consulta.getDataconsulta());
         p.setHoraconsulta(consulta.getHoraconsulta());
         p.setStatus(consulta.getStatus());

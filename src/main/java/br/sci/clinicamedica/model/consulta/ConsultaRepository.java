@@ -16,11 +16,15 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
 
     public Consulta getById(int id);
     public Optional<Consulta> findById(int id);
-    @Query(value = "SELECT status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,datavalidade,medicamento,dosagem,instrucoes,dataconsulta,horaconsulta \n" +
+    @Query(value = "SELECT consultas.id,status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,datavalidade,medicamento,dosagem,instrucoes,dataconsulta,horaconsulta \n" +
             "FROM pacientes,consultas,medicos,receitas,medicamentos where pacientes.id=consultas.idpaciente and\n" +
             "medicos.id=consultas.idmedico and consultas.id=receitas.idconsulta and\n" +
             "receitas.id=medicamentos.idreceita", nativeQuery = true)
     List<ConsultaDTO> findAllDTO();
 
-
+    @Query(value = "SELECT consultas.id as id,status,pacientes.id as idpaciente,medicos.id as idmedico,dataconsulta,horaconsulta \n" +
+            "FROM pacientes,consultas,medicos where pacientes.id=consultas.idpaciente and\n" +
+            "medicos.id=consultas.idmedico and\n" +
+            "consultas.id =:id", nativeQuery = true)
+    SalvarConsultaDTO salvarConsulta(@Param("id") int id);
 }

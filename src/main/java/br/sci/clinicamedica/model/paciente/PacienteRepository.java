@@ -2,6 +2,7 @@ package br.sci.clinicamedica.model.paciente;
 
 import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
+import br.sci.clinicamedica.model.medico.SalvarMedicoDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +19,9 @@ public interface PacienteRepository extends JpaRepository<Paciente, Integer> {
     @Query(value = "SELECT nome,sobrenome,email,telefone,plano_de_saude FROM pacientes", nativeQuery = true)
     List<PacienteDTO> findAllDTO();
 
+    @Query(value = "SELECT * \n" +
+            "FROM pacientes where pacientes.id =:id", nativeQuery = true)
+    SalvarPacienteDTO salvarPaciente(@Param("id") int id);
 
 
     @Query(value = "SELECT status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,datavalidade,medicamento,dosagem,instrucoes,dataconsulta,horaconsulta \n" +
