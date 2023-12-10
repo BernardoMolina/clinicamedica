@@ -1,5 +1,6 @@
 package br.sci.clinicamedica.controller;
 
+import br.sci.clinicamedica.model.medicamento.SalvarMedicamentoDTO;
 import br.sci.clinicamedica.model.medicamento.Medicamento;
 import br.sci.clinicamedica.model.medicamento.SalvarMedicamentoDTO;
 import br.sci.clinicamedica.model.receita.SalvarReceitaDTO;
@@ -52,7 +53,8 @@ public class MedicamentoController {
     @Transactional
     public ResponseEntity atualizar(@RequestBody Medicamento medicamento){
         this.service.atualizar(medicamento);
-        return ResponseEntity.ok(medicamento);
+        SalvarMedicamentoDTO medicamentodto = this.service.salvarMedicamentoDTO(medicamento.getId());
+        return ResponseEntity.ok(medicamentodto);
     }
 
     @DeleteMapping("/{id}")

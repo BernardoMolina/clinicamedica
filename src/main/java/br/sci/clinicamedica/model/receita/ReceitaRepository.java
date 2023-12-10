@@ -2,6 +2,7 @@ package br.sci.clinicamedica.model.receita;
 
 import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
+import br.sci.clinicamedica.model.medicamento.SalvarMedicamentoDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,9 +13,10 @@ import java.util.List;
 
 public interface ReceitaRepository extends JpaRepository<Receita, Integer> {
 
-    @Query(value = "SELECT receitas.id as id,dataprescricao,datavalidade,idconsulta \n" +
+    @Query(value = "SELECT receitas.id,dataprescricao,datavalidade,idconsulta as consultas \n" +
             "FROM receitas where receitas.id =:id\n" , nativeQuery = true)
     SalvarReceitaDTO salvarReceita(@Param("id") int id);
+
 
     @Query(value = "SELECT receitas.id,medicamentos.dosagem,medicamentos.instrucoes,medicamentos.medicamento \n" +
             "FROM receitas,medicamentos where \n" +

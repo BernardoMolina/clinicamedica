@@ -1,46 +1,40 @@
-package br.sci.clinicamedica.model.receita;
+package br.sci.clinicamedica.model.pagamento;
 
 import br.sci.clinicamedica.model.consulta.Consulta;
-import br.sci.clinicamedica.model.medicamento.Medicamento;
+import br.sci.clinicamedica.model.exame.Exame;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
 @Entity
-@Table(name = "receitas")
+@Table(name = "pagamentos")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Receita{
+public class Pagamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotBlank
-    private String dataprescricao;
-
-    @NotBlank
-    private String datavalidade;
-
-
     @OneToOne
     @JoinColumn(name = "idconsulta")
     private Consulta consultas;
 
-    @OneToMany(mappedBy = "receitas")
-    private List<Medicamento> medicamentos;
+    @OneToOne
+    @JoinColumn(name = "idexame")
+    private Exame exames;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private FormasDePagamento formadepagamento;
+
+
+    private float valor;
 }
-
-

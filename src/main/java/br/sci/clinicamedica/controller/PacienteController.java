@@ -2,10 +2,13 @@ package br.sci.clinicamedica.controller;
 
 import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
+import br.sci.clinicamedica.model.exame.ExameDTO;
+import br.sci.clinicamedica.model.exame.TodosExamesDTO;
 import br.sci.clinicamedica.model.medico.SalvarMedicoDTO;
 import br.sci.clinicamedica.model.paciente.Paciente;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.model.paciente.SalvarPacienteDTO;
+import br.sci.clinicamedica.model.receita.ReceitaDTO;
 import br.sci.clinicamedica.service.PacienteService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -65,11 +68,26 @@ public class PacienteController {
     public List<TodasConsultasDTO> listarTodasConsultasPorPaciente(@PathVariable int id){
         return this.service.findByTodasConsultasPorPaciente(id);
     }
+
+    @GetMapping("/receitas_consulta/{id}")
+    public List<ReceitaDTO> listarReceitasPorPaciente(@PathVariable int id){
+        return this.service.findByReceitasPorPaciente(id);
+    }
+
+    @GetMapping("/detalhes_exame/{id}")
+    public List<ExameDTO> listarExamesPorPaciente(@PathVariable int id){
+        return this.service.findByExamesPorPaciente(id);
+    }
+    @GetMapping("/todas_exames/{id}")
+    public List<TodosExamesDTO> listarTodasExamesPorMedico(@PathVariable int id){
+        return this.service.findByTodasExamesPorPaciente(id);
+    }
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody Paciente paciente){
         this.service.atualizar(paciente);
-        return ResponseEntity.ok(paciente);
+        SalvarPacienteDTO pacientedto = this.service.salvarPacienteDTO(paciente.getId());
+        return ResponseEntity.ok(pacientedto);
     }
 
     @DeleteMapping("/{id}")

@@ -3,11 +3,14 @@ package br.sci.clinicamedica.service;
 import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
 import br.sci.clinicamedica.model.consulta.TodasConsultasDTO;
+import br.sci.clinicamedica.model.exame.ExameDTO;
+import br.sci.clinicamedica.model.exame.TodosExamesDTO;
 import br.sci.clinicamedica.model.medico.Medico;
 import br.sci.clinicamedica.model.medico.MedicoDTO;
 import br.sci.clinicamedica.model.medico.MedicoRepository;
 import br.sci.clinicamedica.model.medico.SalvarMedicoDTO;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
+import br.sci.clinicamedica.model.receita.ReceitaDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +42,16 @@ public class MedicoService {
     }
     public List<TodasConsultasDTO> findByTodasConsultasPorMedico(int id){
         return  this.repository.findByTodasConsultasPorMedico(id);
+    }
+    public List<ReceitaDTO> findByReceitasPorMedico(int id){
+        return  this.repository.findByReceitasPorMedico(id);
+    }
+
+    public List<ExameDTO> findByExamesPorMedico(int id){
+        return  this.repository.findByExamesPorMedico(id);
+    }
+    public List<TodosExamesDTO> findByTodasExamesPorMedico(int id){
+        return  this.repository.findByTodasExamesPorMedico(id);
     }
 
     public Medico findById(int id){

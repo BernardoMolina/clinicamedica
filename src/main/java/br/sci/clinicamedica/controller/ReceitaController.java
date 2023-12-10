@@ -56,7 +56,8 @@ public class ReceitaController {
     @Transactional
     public ResponseEntity atualizar(@RequestBody Receita receita){
         this.service.atualizar(receita);
-        return ResponseEntity.ok(receita);
+        SalvarReceitaDTO receitadto = this.service.salvarReceitaDTO(receita.getId());
+        return ResponseEntity.ok(receitadto);
     }
 
     @DeleteMapping("/{id}")

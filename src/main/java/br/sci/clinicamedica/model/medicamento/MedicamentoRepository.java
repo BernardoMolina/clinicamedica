@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 public interface MedicamentoRepository extends JpaRepository<Medicamento, Integer> {
 
-    @Query(value = "SELECT medicamentos.id as id,dosagem,instrucoes,medicamento,idreceita \n" +
-            "FROM medicamentos where medicamentos.id =:id\n" , nativeQuery = true)
+    @Query(value = "SELECT medicamentos.id,dosagem,instrucoes,medicamento,idreceita as receitas \n" +
+            "FROM medicamentos where medicamentos.id =:id \n" , nativeQuery = true)
     SalvarMedicamentoDTO salvarMedicamento(@Param("id") int id);
 }

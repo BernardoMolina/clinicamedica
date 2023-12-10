@@ -3,6 +3,7 @@ package br.sci.clinicamedica.controller;
 import br.sci.clinicamedica.model.consulta.Consulta;
 import br.sci.clinicamedica.model.consulta.ConsultaDTO;
 import br.sci.clinicamedica.model.consulta.SalvarConsultaDTO;
+import br.sci.clinicamedica.model.medico.SalvarMedicoDTO;
 import br.sci.clinicamedica.model.paciente.PacienteDTO;
 import br.sci.clinicamedica.service.ConsultaService;
 import jakarta.transaction.Transactional;
@@ -59,7 +60,8 @@ public class ConsultaController {
     @Transactional
     public ResponseEntity atualizar(@RequestBody Consulta consulta){
         this.service.atualizar(consulta);
-        return ResponseEntity.ok(consulta);
+        SalvarConsultaDTO consultadto = this.service.salvarConsultaDTO(consulta.getId());
+        return ResponseEntity.ok(consultadto);
     }
 
     @DeleteMapping("/{id}")

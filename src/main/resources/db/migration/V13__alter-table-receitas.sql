@@ -1,0 +1,1 @@
+ALTER TABLE receitas add unique(idconsulta);

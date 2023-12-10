@@ -22,7 +22,7 @@ public class Usuario {
     private int id;
     @NotNull
     @Email
-    @UniqueElements
+   // @UniqueElements
     private String login;
     @NotNull
     private String senha;

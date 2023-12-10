@@ -1,0 +1,20 @@
+INSERT INTO pagamentos (id, idconsulta, idexame, formadepagamento, valor)
+VALUES
+    (1, NULL, 1, 'Pix', 200.00),
+    (2, NULL, 2, 'Dinheiro', 250.00),
+    (3, NULL, 3, 'Crédito', 300.00),
+    (4, NULL, 4, 'Débito', 350.00),
+    (5, NULL, 5, 'Pix', 400.00),
+    (6, NULL, 6, 'Dinheiro', 450.00),
+    (7, NULL, 7, 'Crédito', 500.00),
+    (8, NULL, 8, 'Débito', 550.00),
+    (9, NULL, 9, 'Pix', 600.00),
+    (10, NULL, 10, 'Dinheiro', 650.00),
+    (11, 8, NULL, 'Crédito', 700.00),
+    (12, 9, NULL, 'Débito', 750.00),
+    (13, 10, NULL, 'Pix', 800.00),
+    (14, 11, NULL, 'Dinheiro', 850.00),
+    (15, 12, NULL, 'Crédito', 900.00),
+    (16, 13, NULL, 'Débito', 950.00),
+    (17, 14, NULL, 'Pix', 1000.00),
+    (18, 15, NULL, 'Dinheiro', 1050.00);

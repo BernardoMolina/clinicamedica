@@ -1,0 +1,22 @@
+INSERT INTO exames (id, idpaciente, idmedico, dataexame, horaexame, status, resultado)
+VALUES
+    (1, 1, 2, '2023-12-10', '14:30:00', 'Concluído', 'Resultado do exame 1'),
+    (2, 2, 2, '2023-12-11', '15:30:00', 'Concluído', 'Resultado do exame 2'),
+    (3, 3, 3, '2023-12-12', '16:30:00', 'Concluído', 'Resultado do exame 3'),
+    (4, 2, 1, '2023-12-13', '17:30:00', 'Concluído', 'Resultado do exame 4'),
+    (5, 5, 1, '2023-12-14', '18:30:00', 'Concluído', 'Resultado do exame 5'),
+    (6, 4, 4, '2023-12-15', '19:30:00', 'Concluído', 'Resultado do exame 6'),
+    (7, 5, 5, '2023-12-16', '20:30:00', 'Concluído', 'Resultado do exame 7'),
+    (8, 1, 4, '2023-12-17', '21:30:00', 'Concluído', 'Resultado do exame 8'),
+    (9, 4, 5, '2023-12-18', '22:30:00', 'Concluído', 'Resultado do exame 9'),
+    (10, 1, 2, '2023-12-19', '23:30:00', 'Concluído', 'Resultado do exame 10'),
+    (11, 1, 1, '2023-12-20', '08:30:00', 'Agendado', NULL),
+    (12, 2, 2, '2023-12-21', '09:30:00', 'Agendado', NULL),
+    (13, 3, 3, '2023-12-22', '10:30:00', 'Agendado', NULL),
+    (14, 4, 4, '2023-12-23', '11:30:00', 'Agendado', NULL),
+    (15, 5, 5, '2023-12-24', '12:30:00', 'Agendado', NULL),
+    (16, 1, 3, '2023-12-25', '13:30:00', 'Cancelado', NULL),
+    (17, 2, 4, '2023-12-26', '14:30:00', 'Cancelado', NULL),
+    (18, 1, 2, '2023-12-27', '15:30:00', 'Cancelado', NULL),
+    (19, 5, 2, '2023-12-28', '16:30:00', 'Cancelado', NULL),
+    (20, 1, 2, '2023-12-29', '17:30:00', 'Cancelado', NULL);

@@ -11,10 +11,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "consultas")
@@ -30,11 +26,11 @@ public class Consulta {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "medicos")
+    @JoinColumn(name = "idmedico")
     private Medico medicos;
 
     @ManyToOne
-    @JoinColumn(name = "pacientes")
+    @JoinColumn(name = "idpaciente")
     private Paciente pacientes;
 
 
