@@ -14,7 +14,7 @@ services:
     networks:
       - rede
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgresSQL:5432/clinicamedica222
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgresSQL:5433/clinicamedica222
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=senha
   PostgresSQL:
