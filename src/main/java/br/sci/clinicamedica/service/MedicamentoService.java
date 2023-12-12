@@ -31,7 +31,7 @@ public class MedicamentoService {
 
     public void atualizar(Medicamento medicamento){
         Medicamento p = this.repository.getReferenceById(medicamento.getId());
-        p.setReceitas(medicamento.getReceitas());
+        p.setReceita(medicamento.getReceita());
         p.setMedicamento(medicamento.getMedicamento());
         p.setDosagem(medicamento.getDosagem());
         p.setInstrucoes(medicamento.getInstrucoes());

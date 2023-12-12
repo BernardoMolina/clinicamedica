@@ -4,9 +4,9 @@ public interface SalvarConsultaDTO {
 
     int getId();
 
-    String getPacientes();
+    String getPaciente();
 
-    String getMedicos();
+    String getMedico();
 
 
     String getStatus();

@@ -38,8 +38,8 @@ public class ExameService {
 
     public void atualizar(Exame exame){
         Exame p = this.repository.getReferenceById(exame.getId());
-        p.setMedicos(exame.getMedicos());
-        p.setPacientes(exame.getPacientes());
+        p.setMedico(exame.getMedico());
+        p.setPaciente(exame.getPaciente());
         p.setDataexame(exame.getDataexame());
         p.setHoraexame(exame.getHoraexame());
         p.setStatus(exame.getStatus());

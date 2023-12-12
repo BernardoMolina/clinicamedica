@@ -8,9 +8,9 @@ public interface SalvarExameDTO {
 
     String getHoraexame();
 
-    int getMedicos();
+    int getMedico();
 
-    int getPacientes();
+    int getPaciente();
 
     String getStatus();
 }

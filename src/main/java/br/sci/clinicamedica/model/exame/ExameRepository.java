@@ -20,7 +20,7 @@ public interface ExameRepository extends JpaRepository<Exame, Integer> {
 
     List<ExameDTO> findAllDTO();
 
-    @Query(value = "SELECT exames.id as id,status,pacientes.id as pacientes,medicos.id as medicos,dataexame,horaexame \n" +
+    @Query(value = "SELECT exames.id as id,status,pacientes.id as paciente,medicos.id as medico,dataexame,horaexame \n" +
             "FROM pacientes,exames,medicos where pacientes.id=exames.idpaciente and\n" +
             "medicos.id=exames.idmedico and\n" +
             "exames.id =:id", nativeQuery = true)

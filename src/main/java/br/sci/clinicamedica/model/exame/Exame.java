@@ -1,10 +1,12 @@
 package br.sci.clinicamedica.model.exame;
 
+import br.sci.clinicamedica.model.Status;
 import br.sci.clinicamedica.model.medico.Medico;
 import br.sci.clinicamedica.model.paciente.Paciente;
 import br.sci.clinicamedica.model.receita.Receita;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,11 +27,11 @@ public class Exame {
 
     @ManyToOne
     @JoinColumn(name = "idmedico")
-    private Medico medicos;
+    private Medico medico;
 
     @ManyToOne
     @JoinColumn(name = "idpaciente")
-    private Paciente pacientes;
+    private Paciente paciente;
 
 
 
@@ -41,8 +43,9 @@ public class Exame {
     @DateTimeFormat
     private String horaexame;
 
-    @NotBlank
-    private String status;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
     private String resultado;

@@ -2,9 +2,9 @@ package br.sci.clinicamedica.model.medicamento;
 
 public interface SalvarMedicamentoDTO {
 
-    int getId();
 
-    int getReceitas();
+
+    int getReceita();
 
     String getMedicamento();
 

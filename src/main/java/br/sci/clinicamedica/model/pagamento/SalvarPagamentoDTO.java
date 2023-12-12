@@ -4,9 +4,9 @@ public interface SalvarPagamentoDTO {
 
     int getId();
 
-    String getExames();
+    String getExame();
 
-    String getConsultas();
+    String getConsulta();
 
 
     String getFormadepagamento();

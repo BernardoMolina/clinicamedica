@@ -25,11 +25,11 @@ public class Pagamento {
 
     @OneToOne
     @JoinColumn(name = "idconsulta")
-    private Consulta consultas;
+    private Consulta consulta;
 
     @OneToOne
     @JoinColumn(name = "idexame")
-    private Exame exames;
+    private Exame exame;
 
     @NotNull
     @Enumerated(EnumType.STRING)

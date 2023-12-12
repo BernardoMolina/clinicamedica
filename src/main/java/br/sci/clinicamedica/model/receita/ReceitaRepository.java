@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface ReceitaRepository extends JpaRepository<Receita, Integer> {
 
-    @Query(value = "SELECT receitas.id,dataprescricao,datavalidade,idconsulta as consultas \n" +
+    @Query(value = "SELECT receitas.id,dataprescricao,datavalidade,idconsulta as consulta \n" +
             "FROM receitas where receitas.id =:id\n" , nativeQuery = true)
     SalvarReceitaDTO salvarReceita(@Param("id") int id);
 

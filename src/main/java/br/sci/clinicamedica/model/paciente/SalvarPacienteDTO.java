@@ -2,7 +2,7 @@ package br.sci.clinicamedica.model.paciente;
 
 public interface SalvarPacienteDTO {
 
-    int getId();
+
 
     String getNome();
 

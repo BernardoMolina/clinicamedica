@@ -2,7 +2,7 @@ package br.sci.clinicamedica.model.exame;
 
 public interface ExameDTO {
 
-    int getId();
+
     String getStatus();
 
     String getNomepaciente();

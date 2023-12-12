@@ -38,8 +38,8 @@ public class ConsultaService {
 
     public void atualizar(Consulta consulta){
         Consulta p = this.repository.getReferenceById(consulta.getId());
-        p.setMedicos(consulta.getMedicos());
-        p.setPacientes(consulta.getPacientes());
+        p.setMedico(consulta.getMedico());
+        p.setPaciente(consulta.getPaciente());
         p.setDataconsulta(consulta.getDataconsulta());
         p.setHoraconsulta(consulta.getHoraconsulta());
         p.setStatus(consulta.getStatus());

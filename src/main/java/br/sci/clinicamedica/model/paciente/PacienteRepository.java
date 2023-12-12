@@ -47,7 +47,7 @@ public interface PacienteRepository extends JpaRepository<Paciente, Integer> {
 
 
 
-    @Query(value = "SELECT exames.id,status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,dataexame,horaexame,resultado \n" +
+    @Query(value = "SELECT status,pacientes.nome as nomepaciente,medicos.nome as nomemedico,dataexame,horaexame,resultado \n" +
             "FROM pacientes,exames,medicos where pacientes.id=exames.idpaciente and\n" +
             "medicos.id=exames.idmedico and status='Concluído'\n" +
             " and exames.idpaciente =:id", nativeQuery = true)

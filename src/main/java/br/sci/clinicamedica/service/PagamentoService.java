@@ -34,9 +34,9 @@ public class PagamentoService {
 
     public void atualizar(Pagamento pagamento){
         Pagamento p = this.repository.getReferenceById(pagamento.getId());
-        p.setConsultas(pagamento.getConsultas());
-        p.setExames(pagamento.getExames());
-      //  p.setForma_de_pagamento(pagamento.getForma_de_pagamento());
+        p.setConsulta(pagamento.getConsulta());
+        p.setExame(pagamento.getExame());
+        p.setFormadepagamento(pagamento.getFormadepagamento());
         p.setValor(pagamento.getValor());
 
     }

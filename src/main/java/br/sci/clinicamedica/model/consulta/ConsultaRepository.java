@@ -22,7 +22,7 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
             "receitas.id=medicamentos.idreceita", nativeQuery = true)
     List<ConsultaDTO> findAllDTO();
 
-    @Query(value = "SELECT consultas.id as id,status,pacientes.id as pacientes,medicos.id as medicos,dataconsulta,horaconsulta \n" +
+    @Query(value = "SELECT consultas.id as id,status,pacientes.id as paciente,medicos.id as medico,dataconsulta,horaconsulta \n" +
             "FROM pacientes,consultas,medicos where pacientes.id=consultas.idpaciente and\n" +
             "medicos.id=consultas.idmedico and\n" +
             "consultas.id =:id", nativeQuery = true)

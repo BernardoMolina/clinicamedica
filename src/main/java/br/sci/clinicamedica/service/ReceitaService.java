@@ -40,7 +40,7 @@ public class ReceitaService {
         Receita p = this.repository.getReferenceById(receita.getId());
         p.setDataprescricao(receita.getDataprescricao());
         p.setDatavalidade(receita.getDatavalidade());
-        p.setConsultas(receita.getConsultas());
+       // p.setConsulta(receita.getConsulta());
     }
 
     public void excluir(int id){

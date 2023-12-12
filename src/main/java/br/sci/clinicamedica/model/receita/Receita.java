@@ -36,9 +36,9 @@ public class Receita{
 
     @OneToOne
     @JoinColumn(name = "idconsulta")
-    private Consulta consultas;
+    private Consulta consulta;
 
-    @OneToMany(mappedBy = "receitas")
+    @OneToMany(mappedBy = "receita")
     private List<Medicamento> medicamentos;
 
 }

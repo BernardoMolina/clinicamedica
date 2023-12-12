@@ -8,6 +8,6 @@ public interface SalvarReceitaDTO {
 
     String getDatavalidade();
 
-    int getConsultas();
+    int getConsulta();
 
 }

@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
 
-    @Query(value = "SELECT id,valor,pagamentos.idconsulta as consultas,pagamentos.idexame as exames,formadepagamento \n" +
+    @Query(value = "SELECT id,valor,pagamentos.idconsulta as consulta,pagamentos.idexame as exame,formadepagamento \n" +
             "FROM pagamentos where pagamentos.id =:id", nativeQuery = true)
     SalvarPagamentoDTO salvarPagamento(@Param("id") int id);
 }
